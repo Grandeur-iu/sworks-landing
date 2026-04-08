@@ -1025,6 +1025,13 @@ p:last-child {
   padding: 0;
 }
 
+.stock__loading-text {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
 .stock__skeletons {
   display: flex;
   flex-wrap: wrap;
