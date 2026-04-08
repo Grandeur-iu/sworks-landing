@@ -968,19 +968,12 @@ p:last-child {
   background: var(--color-card);
 }
 
-.stock-card__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 4px;
-}
-
 .stock-card__price {
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--color-primary);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 16px;
 }
 
 .stock-card__status {
@@ -991,6 +984,8 @@ p:last-child {
   padding: 4px 10px;
   border-radius: 2px;
   white-space: nowrap;
+  display: inline-block;
+  margin-bottom: 8px;
 }
 
 .stock-card__status--available {
