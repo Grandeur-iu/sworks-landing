@@ -1022,10 +1022,60 @@ p:last-child {
 }
 
 .stock__loading {
-  text-align: center;
-  padding: 40px 0;
-  color: var(--color-text-muted);
-  font-size: 15px;
+  padding: 0;
+}
+
+.stock__skeletons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.skeleton-card {
+  flex: 1 1 calc(33.333% - 16px);
+  min-width: 300px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 280px;
+  background: var(--color-input);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-line {
+  height: 14px;
+  background: var(--color-input);
+  border-radius: 2px;
+  margin-bottom: 12px;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-line--short { width: 30%; }
+.skeleton-line--long { width: 80%; height: 20px; }
+.skeleton-line--medium { width: 60%; }
+.skeleton-line--btn { width: 100%; height: 40px; margin-top: 16px; margin-bottom: 0; }
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@media (max-width: 639px) {
+  .stock__skeletons {
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+  }
+  .skeleton-card {
+    flex: 0 0 300px;
+    min-width: 300px;
+  }
 }
 
 /* --- Booking Modal --- */
