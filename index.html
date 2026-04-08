@@ -426,6 +426,27 @@
   </div>
 </footer>
 
+<!-- ===== BOOKING MODAL ===== -->
+<div class="modal-overlay" id="booking-modal" style="display:none">
+  <div class="modal">
+    <button class="modal__close" id="modal-close" aria-label="Закрыть">&times;</button>
+    <h3>Забронировать</h3>
+    <p class="modal__bike-name" id="modal-bike-name"></p>
+    <form id="booking-form" action="https://formsubmit.co/yabike.ru@yandex.ru" method="POST">
+      <input type="hidden" name="_subject" value="Бронирование велосипеда — S-Works">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="bike_model" id="booking-bike-model" value="">
+      <div class="form-group">
+        <label for="booking-phone">Телефон</label>
+        <input type="tel" id="booking-phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+      </div>
+      <button type="submit" class="btn btn--primary btn--full">Забронировать</button>
+      <p class="form__fine-print">Перезвоним в течение 15 минут для подтверждения.</p>
+    </form>
+  </div>
+</div>
+
 <!-- ===== JAVASCRIPT ===== -->
 <script>
 (function() {
@@ -631,13 +652,14 @@
 
     bikes.forEach(function(bike) {
       var info = getStatusInfo(bike.status);
-      var isAvailable = bike.status.toLowerCase().trim() === 'свободен';
+      var s = bike.status.toLowerCase().trim();
+      var canBook = (s === 'свободен' || s === 'в пути');
       var photoUrl = normalizePhotoUrl(bike.photo);
 
       var card = document.createElement('div');
       card.className = 'stock-card';
 
-      var buttonHtml = isAvailable
+      var buttonHtml = canBook
         ? '<button class="btn btn--primary btn--small btn--full stock-book-btn" data-model="' + escapeAttr(bike.model) + '">Забронировать</button>'
         : '<span class="btn btn--outline btn--small btn--full btn--disabled">' + escapeHtml(info.label) + '</span>';
 
@@ -647,12 +669,10 @@
 
       card.innerHTML =
         imgHtml +
-        '<div class="stock-card__header">' +
-          '<span class="stock-card__price">' + escapeHtml(bike.price) + '</span>' +
-          '<span class="stock-card__status ' + info.cssClass + '">' + escapeHtml(info.label) + '</span>' +
-        '</div>' +
+        '<span class="stock-card__status ' + info.cssClass + '">' + escapeHtml(info.label) + '</span>' +
         '<h3>' + escapeHtml(bike.model) + '</h3>' +
         '<p class="stock-card__desc">' + escapeHtml(bike.description) + '</p>' +
+        '<div class="stock-card__price">' + escapeHtml(bike.price) + '</div>' +
         buttonHtml;
 
       grid.appendChild(card);
@@ -763,27 +783,6 @@
 
 })();
 </script>
-
-<!-- ===== BOOKING MODAL ===== -->
-<div class="modal-overlay" id="booking-modal" style="display:none">
-  <div class="modal">
-    <button class="modal__close" id="modal-close" aria-label="Закрыть">&times;</button>
-    <h3>Забронировать</h3>
-    <p class="modal__bike-name" id="modal-bike-name"></p>
-    <form id="booking-form" action="https://formsubmit.co/yabike.ru@yandex.ru" method="POST">
-      <input type="hidden" name="_subject" value="Бронирование велосипеда — S-Works">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="bike_model" id="booking-bike-model" value="">
-      <div class="form-group">
-        <label for="booking-phone">Телефон</label>
-        <input type="tel" id="booking-phone" name="phone" placeholder="+7 (___) ___-__-__" required>
-      </div>
-      <button type="submit" class="btn btn--primary btn--full">Забронировать</button>
-      <p class="form__fine-print">Перезвоним в течение 15 минут для подтверждения.</p>
-    </form>
-  </div>
-</div>
 
 </body>
 </html>
