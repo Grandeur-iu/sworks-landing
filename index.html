@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S-Works в России — Ябайк | Подберём, привезём, соберём</title>
+  <meta name="description" content="Велосипеды S-Works в магазине Ябайк. Tarmac SL8, Aethos, Turbo Levo. Прямые поставки из Европы. Магазин в Крылатском. Сборка под заказ, сервис, гарантия.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" as="image" href="media/remco.webp">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="#" class="header__logo"><img src="я байк-2.png" alt="Ябайк" class="header__logo-img"></a>
+    <div class="header__right">
+      <a href="#form" class="btn btn--primary btn--small">Консультация</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero__content">
+      <span class="label label--muted">Ябайк · S-Works в России</span>
+      <h1>Подберём, привезём<br>и соберём ваш S-Works</h1>
+      <p class="hero__subtitle">Прямые поставки из Европы. Шоссе, гравел, МТБ, электро — любая модель S-Works. Соберём и настроим под вас. Магазин и мастерская в Крылатском.</p>
+      <div class="hero__cta">
+        <a href="#form" class="btn btn--primary">Получить консультацию</a>
+        <a href="#stock" class="hero__scroll-link">Велосипеды в наличии ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IN STOCK ===== -->
+<section class="section stock" id="stock">
+  <div class="container">
+    <div class="text-center mb-48 fade-in">
+      <span class="label">Сейчас в наличии</span>
+      <h2>Готовы к покупке</h2>
+    </div>
+    <div class="stock__grid fade-in" id="stock-grid">
+      <!-- JS рендерит карточки -->
+    </div>
+    <div class="stock__loading" id="stock-loading">Загружаем каталог...</div>
+  </div>
+</section>
+
+<!-- ===== MODELS ===== -->
+<section class="section models" id="models">
+  <div class="container">
+    <div class="text-center mb-48 fade-in">
+      <span class="label">Модельный ряд</span>
+      <h2>Выберите свой S-Works</h2>
+    </div>
+
+    <div class="models__grid fade-in">
+
+      <!-- TARMAC SL8 -->
+      <div class="model-card">
+        <img class="model-card__image" src="media/верные/94926-01_TARMAC-SL8-SW-DI2-PRMFJDMET-METWHT_HERO_DARK-PDP.webp" alt="S-Works Tarmac SL8 — гоночный флагман" loading="lazy">
+        <span class="model-card__subtitle">Гоночный флагман</span>
+        <h3>TARMAC SL8</h3>
+        <p class="model-card__desc">Рама FACT 12r весом 685 граммов, разработана в аэротрубе Win Tunnel. Тот самый велосипед Ремко Эвенепула и команды Red Bull BORA-hansgrohe. Комплектации с Shimano Dura-Ace Di2 и SRAM Red eTap AXS.</p>
+        <a href="#form" class="btn btn--outline btn--small btn--full">Получить консультацию</a>
+      </div>
+
+      <!-- AETHOS -->
+      <div class="model-card">
+        <img class="model-card__image" src="media/верные/97226-02_AETHOS-SW-AXS-CARB-DLMMET_HERO_DARK-PDP.webp" alt="S-Works Aethos — ультралёгкий" loading="lazy">
+        <span class="model-card__subtitle">Ультралёгкий</span>
+        <h3>AETHOS</h3>
+        <p class="model-card__desc">Легче минимума UCI. Чистый карбон FACT 12r без компромиссов в пользу аэродинамики — только вес и отклик. Для тех, кто считает каждый грамм и ценит чистоту ощущений от езды.</p>
+        <a href="#form" class="btn btn--outline btn--small btn--full">Получить консультацию</a>
+      </div>
+
+      <!-- TURBO LEVO -->
+      <div class="model-card">
+        <img class="model-card__image" src="media/верные/95226-06_LEVO-SW-CARBON-G4-LRLGRNMET-BNTGLDMET-CHRM_HERO_DARK-PDP.webp" alt="S-Works Turbo Levo — электро-МТБ флагман" loading="lazy">
+        <span class="model-card__subtitle">Электро-МТБ флагман</span>
+        <h3>TURBO LEVO</h3>
+        <p class="model-card__desc">Флагман электро-МТБ. Мотор Specialized 2.2, карбоновая рама FACT 11m, до 5 часов батареи. Трейлы без ограничений — максимум возможностей на любом рельефе.</p>
+        <a href="#form" class="btn btn--outline btn--small btn--full">Получить консультацию</a>
+      </div>
+
+    </div>
+
+    <div class="text-center mb-24 fade-in" style="margin-top:48px">
+      <span class="label">Также в каталоге</span>
+    </div>
+
+    <div class="models__also-grid fade-in">
+      <a href="#form" class="mini-card">
+        <img class="mini-card__image" src="media/верные/91426-00_CRUX-SW-FJDMET-DLMMET_HERO-PDP_DARK.webp" alt="S-Works Crux" loading="lazy">
+        <div class="mini-card__info">
+          <h4>CRUX</h4>
+          <span>Гравел</span>
+        </div>
+      </a>
+      <a href="#form" class="mini-card">
+        <img class="mini-card__image" src="media/верные/93126-01_EPIC-WC-SW-METPNGRN-OIS-LQDMET_HERO_DARK-PDP.webp" alt="S-Works Epic World Cup" loading="lazy">
+        <div class="mini-card__info">
+          <h4>EPIC WORLD CUP</h4>
+          <span>Кросс-кантри</span>
+        </div>
+      </a>
+      <a href="#form" class="mini-card">
+        <img class="mini-card__image" src="media/верные/94426-01_ROUBAIX-SW-AXS-FJDMET-CARB_HERO-PDP_DARK.webp" alt="S-Works Roubaix SL8" loading="lazy">
+        <div class="mini-card__info">
+          <h4>ROUBAIX SL8</h4>
+          <span>Шоссе / эндуранс</span>
+        </div>
+      </a>
+      <a href="#form" class="mini-card">
+        <img class="mini-card__image" src="media/верные/98126-00_CREO-SL-SW-CARBON-BDXMET-GLDPRL-SILDST_HERO-PDP_DARK.webp" alt="S-Works Turbo Creo SL" loading="lazy">
+        <div class="mini-card__info">
+          <h4>TURBO CREO SL</h4>
+          <span>Электро-шоссе</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="models__more fade-in">
+      А также: Shiv, Diverge STR, Epic 8 EVO, Turbo Kenevo SL и другие модели S-Works — спросите у наших экспертов
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA MID + BONUSES ===== -->
+<section class="cta-mid" id="cta-mid">
+  <div class="container fade-in">
+    <h3 class="mb-24">Поможем выбрать и собрать ваш S-Works</h3>
+
+    <div class="cta-mid__bonuses">
+      <div class="bonus-badge">
+        <div class="bonus-badge__title">
+          <svg class="bonus-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Сборка и конфигурация под заказ
+        </div>
+        <p>Соберём велосипед на любых компонентах. Группа, колёса, кокпит, седло — всё по вашему выбору. Любая конфигурация S-Works.</p>
+      </div>
+      <div class="bonus-badge">
+        <div class="bonus-badge__title">
+          <svg class="bonus-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Первое ТО — бесплатно
+        </div>
+        <p>После покупки проведём полное техническое обслуживание в нашей мастерской. Оригинальные запчасти, профессиональные механики.</p>
+      </div>
+      <div class="bonus-badge">
+        <div class="bonus-badge__title">
+          <svg class="bonus-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Тренировка с тренером — в подарок
+        </div>
+        <p>Техника владения велосипедом и профессиональная настройка посадки с квалифицированным тренером.</p>
+      </div>
+    </div>
+
+    <a href="#form" class="btn btn--primary">Получить консультацию</a>
+  </div>
+</section>
+
+<!-- ===== ADVANTAGES ===== -->
+<section class="section advantages" id="advantages">
+  <div class="container">
+    <div class="text-center mb-48 fade-in">
+      <span class="label">Почему Ябайк</span>
+      <h2>Больше, чем магазин</h2>
+    </div>
+
+    <div class="advantages__grid">
+
+      <div class="advantage fade-in">
+        <svg class="advantage__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h4>Магазин в Крылатском</h4>
+        <p>Знаковое место для велосипедистов Москвы. Приезжайте — покажем каталог, проконсультируем, поможем определиться с моделью и размером.</p>
+      </div>
+
+      <div class="advantage fade-in">
+        <svg class="advantage__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <h4>Своя веломастерская</h4>
+        <p>Профессиональные механики, лучшее оборудование, только оригинальные запчасти. Первое ТО — бесплатно.</p>
+      </div>
+
+      <div class="advantage fade-in">
+        <svg class="advantage__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h4>Прямые поставки из Европы</h4>
+        <p>Индивидуальные условия для каждого клиента. Полный комплект документов, велосипед в оригинальной упаковке. Европейская гарантия + 2 года от нас.</p>
+      </div>
+
+      <div class="advantage fade-in">
+        <svg class="advantage__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <h4>Сборка под заказ</h4>
+        <p>Соберём велосипед на любых компонентах: группа, колёса, кокпит, седло. Любая конфигурация S-Works — ваш велосипед, только ваш.</p>
+      </div>
+
+      <div class="advantage fade-in">
+        <svg class="advantage__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <h4>Экспертный подбор</h4>
+        <p>Поможем выбрать модель и размер под вашу антропометрию и стиль езды. Вводная тренировка с тренером + выставление посадки — в подарок.</p>
+      </div>
+
+      <div class="advantage fade-in">
+        <svg class="advantage__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <h4>Доставка по России и Европе</h4>
+        <p>ПЭК, СДЭК, Деловые Линии — по всей России. Консьерж-доставка в Европу. Любые формы оплаты для физических и юридических лиц.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== HERITAGE (compact) ===== -->
+<section class="section heritage" id="heritage">
+  <div class="container">
+    <div class="heritage__compact fade-in">
+      <div class="heritage__stats">
+        <div class="stat">
+          <div class="stat__number" data-target="30">0</div>
+          <div class="stat__label">лет инноваций</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number" data-target="10">0</div>
+          <div class="stat__label">побед на<br>Гранд-турах</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number" data-target="3">0</div>
+          <div class="stat__label">олимпийских<br>медали</div>
+        </div>
+        <div class="stat">
+          <div class="stat__number" data-target="500">0</div>
+          <div class="stat__label">лимитированных<br>Tarmac SL8 LTD</div>
+        </div>
+      </div>
+      <p class="heritage__tagline">S-Works — вершина того, чем может быть велоспорт. Каждый грамм, каждый ватт, каждая секунда. Мы привозим эти велосипеды для вас.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TECH CARDS ===== -->
+<section class="section tech" id="tech">
+  <div class="container">
+    <div class="text-center mb-48 fade-in">
+      <span class="label">Технологии S-Works</span>
+      <h2>За что вы платите</h2>
+    </div>
+
+    <div class="tech-grid fade-in">
+      <div class="tech-card">
+        <img class="tech-card__image" src="media/factCarbonFiberHero.webp" alt="FACT 12r Carbon — эксклюзивный карбон S-Works" loading="lazy">
+        <h4>FACT 12r Carbon</h4>
+        <p>Высший сорт карбона, доступный только в линейке S-Works. Рама Tarmac SL8 весит 685 граммов — на 15% легче предыдущего поколения. Каждый размер рамы спроектирован индивидуально — технология Rider-First Engineered.</p>
+      </div>
+      <div class="tech-card">
+        <img class="tech-card__image" src="media/aero-is-everything-Hero-End-1440x810.webp" alt="Win Tunnel — собственная аэродинамическая труба Specialized" loading="lazy">
+        <h4>Win Tunnel</h4>
+        <p>Собственная аэродинамическая труба в Morgan Hill, Калифорния. Tarmac SL8 на 16,6 секунд быстрее за 40 км, чем предыдущее поколение. Каждый элемент — от рамы до тросиков — оптимизирован для минимального сопротивления.</p>
+      </div>
+      <div class="tech-card">
+        <img class="tech-card__image" src="media/FutureShockBenefitsBiDirHero.webp" alt="Future Shock — подвеска в рулевом стакане" loading="lazy">
+        <h4>Future Shock</h4>
+        <p>20 мм подвески, встроенной в рулевой стакан. Плавность — это преимущество в скорости: меньше усталости, стабильнее педалирование, лучше сцепление. Жёсткая рама для эффективности + подвеска для комфорта — без компромиссов.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM ===== -->
+<section class="section form-section" id="form">
+  <div class="container">
+    <div class="form-section__inner">
+
+      <div class="form-section__text fade-in">
+        <span class="label">Ябайк × S-Works</span>
+        <h2>Подберём ваш идеальный S-Works</h2>
+        <p>Оставьте номер телефона — эксперт Ябайк свяжется для бесплатной консультации. Расскажем о наличии, комплектациях, сроках доставки и поможем выбрать идеальный велосипед.</p>
+      </div>
+
+      <div class="form-section__form fade-in">
+        <form id="lead-form" action="https://formsubmit.co/yabike.ru@yandex.ru" method="POST">
+          <input type="hidden" name="_subject" value="Новая заявка с лендинга S-Works">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="form-group">
+            <label for="model">Какая модель интересует?</label>
+            <select id="model" name="model">
+              <option value="" disabled selected>Выберите модель</option>
+              <option value="tarmac-sl8">Tarmac SL8 (шоссе, гонки)</option>
+              <option value="aethos">Aethos (шоссе, ультралайт)</option>
+              <option value="roubaix">Roubaix SL8 (шоссе, эндуранс)</option>
+              <option value="turbo-levo">Turbo Levo (электро-МТБ)</option>
+              <option value="crux">Crux (гравел)</option>
+              <option value="epic">Epic (кросс-кантри)</option>
+              <option value="turbo-creo">Turbo Creo SL (электро-шоссе)</option>
+              <option value="shiv">Shiv (разделка)</option>
+              <option value="other">Другая модель</option>
+              <option value="undecided">Ещё не определился</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="comment">Комментарий <span style="font-weight:400;text-transform:none;letter-spacing:0">(необязательно)</span></label>
+            <textarea id="comment" name="comment" rows="3" placeholder="Размер, комплектация, вопросы..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Получить консультацию</button>
+          <p class="form__fine-print">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности. Мы не передаём ваши данные третьим лицам.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="text-center mb-48 fade-in">
+      <span class="label">Вопросы и ответы</span>
+      <h2>Частые вопросы</h2>
+    </div>
+
+    <div class="faq-list fade-in">
+
+      <div class="faq-item">
+        <button class="faq-item__question">
+          Какие цены на велосипеды S-Works?
+          <span class="faq-item__icon"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Стоимость зависит от модели и комплектации. S-Works включает шоссейные, горные, гравийные и электрические велосипеды — каждая категория со своим диапазоном. Оставьте заявку, и мы подготовим персональное предложение с актуальными ценами и наличием.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question">
+          Как вы привозите S-Works, если бренд не представлен в России?
+          <span class="faq-item__icon"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Мы осуществляем прямые поставки из Европы. Каждый велосипед приходит с полным комплектом документов, в оригинальной заводской упаковке, с европейской гарантией от Specialized. Дополнительно мы даём 2 года гарантии от нашего магазина.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question">
+          Можно посмотреть велосипед вживую перед покупкой?
+          <span class="faq-item__icon"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>В нашем магазине в Крылатском мы покажем каталог, расскажем о каждой модели и поможем с выбором. Если нужная модель есть в наличии — сможете посмотреть вживую. Также организуем тест-райды по предварительной записи.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question">
+          Как происходит сборка под заказ?
+          <span class="faq-item__icon"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Вы выбираете раму и цвет, а мы собираем велосипед на любых компонентах: группа, колёса, кокпит, седло — всё по вашему выбору. Срок сборки — от 2 до 8 недель в зависимости от наличия компонентов.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question">
+          Какая гарантия на велосипеды?
+          <span class="faq-item__icon"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Все велосипеды поставляются с европейской гарантией от Specialized. Дополнительно мы даём 2 года гарантии от нашего магазина. Первое техническое обслуживание — бесплатно.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-item__question">
+          Вы доставляете в другие города и за рубеж?
+          <span class="faq-item__icon"></span>
+        </button>
+        <div class="faq-item__answer">
+          <p>Да, доставляем по всей России транспортными компаниями ПЭК, СДЭК и Деловые Линии. Для клиентов в Европе работает консьерж-сервис — доставим велосипед и любые аксессуары.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer__logo"><img src="я байк-2.png" alt="Ябайк" class="footer__logo-img"></div>
+    <p class="footer__about">Более 20 лет работы с премиальными велосипедами. Команда профессионалов с гоночным опытом. Репутация, которую мы строили годами — и ваше доверие, которое ценим.</p>
+
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h4>Контакты</h4>
+        <p>Крылатская ул., 10, стр. 3, Москва</p>
+        <p>Заявки принимаем 24/7</p>
+      </div>
+      <div class="footer__col">
+        <h4>Каталог</h4>
+        <a href="#models">S-Works Tarmac SL8</a>
+        <a href="#models">S-Works Aethos</a>
+        <a href="#models">S-Works Turbo Levo</a>
+        <a href="#models">Все велосипеды</a>
+      </div>
+      <div class="footer__col">
+        <h4>О магазине Ябайк</h4>
+        <a href="#advantages">Магазин в Крылатском</a>
+        <a href="#advantages">Веломастерская</a>
+        <a href="#faq">Доставка и оплата</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      &copy; 2026 Ябайк — S-Works в России
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+(function() {
+  'use strict';
+
+  // --- Header scroll ---
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 60) {
+      header.classList.add('header--scrolled');
+    } else {
+      header.classList.remove('header--scrolled');
+    }
+  }, { passive: true });
+
+  // --- Scroll animations (IntersectionObserver) ---
+  var fadeEls = document.querySelectorAll('.fade-in');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(function(el) { observer.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('is-visible'); });
+  }
+
+  // --- FAQ accordion ---
+  document.querySelectorAll('.faq-item__question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.faq-item');
+      var isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item.is-open').forEach(function(el) {
+        el.classList.remove('is-open');
+      });
+      if (!isOpen) item.classList.add('is-open');
+    });
+  });
+
+  // --- Phone mask (shared) ---
+  function applyPhoneMask(input) {
+    if (!input) return;
+    input.addEventListener('input', function(e) {
+      var x = e.target.value.replace(/\D/g, '');
+      if (x.length > 0 && x[0] === '8') x = '7' + x.substring(1);
+      if (x.length > 0 && x[0] !== '7') x = '7' + x;
+      var formatted = '';
+      if (x.length > 0) formatted = '+7';
+      if (x.length > 1) formatted += ' (' + x.substring(1, 4);
+      if (x.length >= 4) formatted += ') ' + x.substring(4, 7);
+      if (x.length >= 7) formatted += '-' + x.substring(7, 9);
+      if (x.length >= 9) formatted += '-' + x.substring(9, 11);
+      e.target.value = formatted;
+    });
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Backspace' && this.value.length <= 3) {
+        e.preventDefault();
+        this.value = '';
+      }
+    });
+    input.addEventListener('focus', function() {
+      if (!this.value) this.value = '+7';
+    });
+  }
+
+  applyPhoneMask(document.getElementById('phone'));
+  applyPhoneMask(document.getElementById('booking-phone'));
+
+  // --- Stat counter animation ---
+  var statsAnimated = false;
+  var statsSection = document.querySelector('.heritage__stats');
+  if (statsSection && 'IntersectionObserver' in window) {
+    var statsObserver = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !statsAnimated) {
+        statsAnimated = true;
+        animateCounters();
+        statsObserver.unobserve(statsSection);
+      }
+    }, { threshold: 0.3 });
+    statsObserver.observe(statsSection);
+  }
+
+  function animateCounters() {
+    document.querySelectorAll('.stat__number').forEach(function(el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var duration = 2000;
+      var start = performance.now();
+
+      function update(now) {
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.round(target * eased);
+        el.textContent = current + '+';
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
+  // --- Smooth scroll for anchors ---
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        var offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h'), 10) || 56;
+        var top = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // --- Form AJAX submit ---
+  var form = document.getElementById('lead-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var phone = document.getElementById('phone').value.replace(/\D/g, '');
+      if (phone.length < 11) {
+        document.getElementById('phone').style.borderColor = '#CF2027';
+        return;
+      }
+      document.getElementById('phone').style.borderColor = '';
+
+      var formData = new FormData(form);
+      var submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.textContent = 'Отправка...';
+      submitBtn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.innerHTML = '<div style="text-align:center;padding:40px 0"><h3 style="color:#fff;margin-bottom:12px">Спасибо за заявку!</h3><p style="color:#999">Наш эксперт свяжется с вами в ближайшее время.</p></div>';
+        } else {
+          submitBtn.textContent = 'Получить консультацию';
+          submitBtn.disabled = false;
+        }
+      }).catch(function() {
+        submitBtn.textContent = 'Получить консультацию';
+        submitBtn.disabled = false;
+      });
+    });
+  }
+
+  // --- Stock section: fetch from Google Sheets via Apps Script ---
+  // ВАЖНО: замените URL на ваш задеплоенный Apps Script
+  var SHEET_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function escapeAttr(str) {
+    return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function normalizePhotoUrl(url) {
+    if (!url) return '';
+    var match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    if (match) {
+      return 'https://drive.google.com/uc?export=view&id=' + match[1];
+    }
+    return url;
+  }
+
+  function getStatusInfo(status) {
+    var s = status.toLowerCase().trim();
+    if (s === 'свободен') {
+      return { label: 'В наличии', cssClass: 'stock-card__status--available' };
+    } else if (s === 'в пути') {
+      return { label: 'В пути', cssClass: 'stock-card__status--transit' };
+    } else if (s === 'забронирован') {
+      return { label: 'Забронирован', cssClass: 'stock-card__status--reserved' };
+    } else {
+      return { label: status, cssClass: 'stock-card__status--reserved' };
+    }
+  }
+
+  function renderStockCards(bikes) {
+    var grid = document.getElementById('stock-grid');
+    var loading = document.getElementById('stock-loading');
+    var section = document.querySelector('.stock');
+
+    loading.style.display = 'none';
+
+    if (bikes.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+
+    bikes.forEach(function(bike) {
+      var info = getStatusInfo(bike.status);
+      var isAvailable = bike.status.toLowerCase().trim() === 'свободен';
+      var photoUrl = normalizePhotoUrl(bike.photo);
+
+      var card = document.createElement('div');
+      card.className = 'stock-card';
+
+      var buttonHtml = isAvailable
+        ? '<button class="btn btn--primary btn--small btn--full stock-book-btn" data-model="' + escapeAttr(bike.model) + '">Забронировать</button>'
+        : '<span class="btn btn--outline btn--small btn--full btn--disabled">' + escapeHtml(info.label) + '</span>';
+
+      var imgHtml = photoUrl
+        ? '<img class="stock-card__image" src="' + escapeAttr(photoUrl) + '" alt="' + escapeAttr(bike.model) + '" loading="lazy" onerror="this.style.display=\'none\'">'
+        : '';
+
+      card.innerHTML =
+        imgHtml +
+        '<div class="stock-card__header">' +
+          '<span class="stock-card__price">' + escapeHtml(bike.price) + '</span>' +
+          '<span class="stock-card__status ' + info.cssClass + '">' + escapeHtml(info.label) + '</span>' +
+        '</div>' +
+        '<h3>' + escapeHtml(bike.model) + '</h3>' +
+        '<p class="stock-card__desc">' + escapeHtml(bike.description) + '</p>' +
+        buttonHtml;
+
+      grid.appendChild(card);
+    });
+
+    // Re-observe fade-in elements added dynamically
+    if (typeof observer !== 'undefined') {
+      section.querySelectorAll('.fade-in').forEach(function(el) {
+        observer.observe(el);
+      });
+    }
+  }
+
+  function loadStock() {
+    if (SHEET_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+      // URL ещё не настроен — скрываем секцию
+      var section = document.querySelector('.stock');
+      if (section) section.style.display = 'none';
+      return;
+    }
+
+    fetch(SHEET_URL)
+      .then(function(response) {
+        if (!response.ok) throw new Error('Sheet fetch failed');
+        return response.json();
+      })
+      .then(function(bikes) {
+        renderStockCards(bikes);
+      })
+      .catch(function(err) {
+        console.error('Stock load error:', err);
+        var loading = document.getElementById('stock-loading');
+        if (loading) loading.innerHTML = '<p>Не удалось загрузить каталог. <a href="#form" style="color:var(--color-primary)">Оставьте заявку</a> — мы расскажем о наличии.</p>';
+      });
+  }
+
+  loadStock();
+
+  // --- Booking modal ---
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.stock-book-btn');
+    if (!btn) return;
+
+    var modelName = btn.getAttribute('data-model');
+    var modal = document.getElementById('booking-modal');
+    var bikeName = document.getElementById('modal-bike-name');
+    var bikeInput = document.getElementById('booking-bike-model');
+
+    bikeName.textContent = modelName;
+    bikeInput.value = modelName;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(function() {
+      document.getElementById('booking-phone').focus();
+    }, 100);
+  });
+
+  function closeModal() {
+    var modal = document.getElementById('booking-modal');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('booking-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // --- Booking form AJAX submit ---
+  var bookingForm = document.getElementById('booking-form');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var phone = document.getElementById('booking-phone').value.replace(/\D/g, '');
+      if (phone.length < 11) {
+        document.getElementById('booking-phone').style.borderColor = '#CF2027';
+        return;
+      }
+      document.getElementById('booking-phone').style.borderColor = '';
+
+      var formData = new FormData(bookingForm);
+      var submitBtn = bookingForm.querySelector('button[type="submit"]');
+      submitBtn.textContent = 'Отправка...';
+      submitBtn.disabled = true;
+
+      fetch(bookingForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          bookingForm.innerHTML = '<div style="text-align:center;padding:24px 0"><h3 style="color:#fff;margin-bottom:8px">Велосипед забронирован!</h3><p style="color:#999">Перезвоним для подтверждения.</p></div>';
+          setTimeout(closeModal, 2500);
+        } else {
+          submitBtn.textContent = 'Забронировать';
+          submitBtn.disabled = false;
+        }
+      }).catch(function() {
+        submitBtn.textContent = 'Забронировать';
+        submitBtn.disabled = false;
+      });
+    });
+  }
+
+})();
+</script>
+
+<!-- ===== BOOKING MODAL ===== -->
+<div class="modal-overlay" id="booking-modal" style="display:none">
+  <div class="modal">
+    <button class="modal__close" id="modal-close" aria-label="Закрыть">&times;</button>
+    <h3>Забронировать</h3>
+    <p class="modal__bike-name" id="modal-bike-name"></p>
+    <form id="booking-form" action="https://formsubmit.co/yabike.ru@yandex.ru" method="POST">
+      <input type="hidden" name="_subject" value="Бронирование велосипеда — S-Works">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="bike_model" id="booking-bike-model" value="">
+      <div class="form-group">
+        <label for="booking-phone">Телефон</label>
+        <input type="tel" id="booking-phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+      </div>
+      <button type="submit" class="btn btn--primary btn--full">Забронировать</button>
+      <p class="form__fine-print">Перезвоним в течение 15 минут для подтверждения.</p>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
