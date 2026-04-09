@@ -611,6 +611,7 @@
         headers: { 'Accept': 'application/json' }
       }).then(function(response) {
         if (response.ok) {
+          if (typeof ym !== 'undefined') ym(108467185, 'reachGoal', 'lead_form');
           form.innerHTML = '<div style="text-align:center;padding:40px 0"><h3 style="color:#fff;margin-bottom:12px">Спасибо за заявку!</h3><p style="color:#999">Наш эксперт свяжется с вами в ближайшее время.</p></div>';
         } else {
           submitBtn.textContent = 'Получить консультацию';
@@ -789,6 +790,7 @@
         headers: { 'Accept': 'application/json' }
       }).then(function(response) {
         if (response.ok) {
+          if (typeof ym !== 'undefined') ym(108467185, 'reachGoal', 'booking_form');
           bookingForm.innerHTML = '<div style="text-align:center;padding:24px 0"><h3 style="color:#fff;margin-bottom:8px">Велосипед забронирован!</h3><p style="color:#999">Перезвоним для подтверждения.</p></div>';
           setTimeout(closeModal, 2500);
         } else {
