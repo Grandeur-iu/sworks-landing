@@ -761,6 +761,14 @@ p:last-child {
   margin-top: 16px;
   line-height: 1.5;
 }
+.form__fine-print a {
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  transition: color .2s;
+}
+.form__fine-print a:hover {
+  color: #fff;
+}
 
 @media (max-width: 639px) {
   .form-section__text { display: none; }
