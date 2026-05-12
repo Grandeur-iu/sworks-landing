@@ -48,32 +48,36 @@
       <span class="label label--muted">Ябайк · S-Works в России</span>
       <h1>Подберём, привезём<br>и соберём ваш <span style="white-space:nowrap">S-Works</span></h1>
       <p class="hero__subtitle">Прямые поставки из Европы. Шоссе, гравел, МТБ, электро — любая модель S-Works. Соберём и настроим под вас. Магазин и мастерская в Крылатском.</p>
-      <a href="#stock" class="stock-panel" id="hero-stock-panel" style="display:none" aria-label="Перейти к каталогу">
-        <div class="stock-panel__glow" aria-hidden="true"></div>
-
-        <div class="stock-panel__row stock-panel__row--status">
+      <a href="#stock" class="stock-panel stock-panel--loading" id="hero-stock-panel" aria-label="Перейти к каталогу">
+        <div class="stock-panel__head">
           <span class="stock-panel__dot" aria-hidden="true"></span>
-          <span class="stock-panel__status-text">Live<span class="stock-panel__status-sep">·</span>Сейчас в каталоге</span>
+          <span class="stock-panel__head-text">Live<span class="stock-panel__head-sep">·</span>Сейчас в каталоге</span>
         </div>
 
-        <div class="stock-panel__row stock-panel__row--main">
-          <span class="stock-panel__main-num" id="stat-available">—</span>
-          <div class="stock-panel__main-info">
-            <span class="stock-panel__main-bar" aria-hidden="true"></span>
-            <span class="stock-panel__main-label">велосипедов <br>в&nbsp;наличии</span>
-            <div class="stock-panel__meta">
-              <span class="stock-panel__meta-item"><strong id="stat-customs">—</strong> на&nbsp;таможне</span>
-              <span class="stock-panel__meta-item"><strong id="stat-orderable">—</strong> под&nbsp;заказ</span>
-              <span class="stock-panel__meta-item"><strong id="stat-reserved">—</strong> в&nbsp;выдаче</span>
-            </div>
+        <div class="stock-panel__stats">
+          <div class="stock-stat">
+            <span class="stock-stat__label">в наличии</span>
+            <span class="stock-stat__num" id="stat-available">—</span>
+          </div>
+          <div class="stock-stat">
+            <span class="stock-stat__label">на&nbsp;таможне</span>
+            <span class="stock-stat__num" id="stat-customs">—</span>
+          </div>
+          <div class="stock-stat">
+            <span class="stock-stat__label">под заказ</span>
+            <span class="stock-stat__num" id="stat-orderable">—</span>
+          </div>
+          <div class="stock-stat">
+            <span class="stock-stat__label">в выдаче</span>
+            <span class="stock-stat__num" id="stat-reserved">—</span>
           </div>
         </div>
 
-        <div class="stock-panel__row stock-panel__row--footer">
+        <div class="stock-panel__foot">
           <span class="stock-panel__price" id="stat-min-price"></span>
           <span class="stock-panel__cta">
-            <span>Смотреть каталог</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            Смотреть каталог
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </span>
         </div>
       </a>
@@ -813,9 +817,10 @@
     var prices = available.map(function(b) { return parsePrice(b.price); }).filter(function(p) { return p !== null; });
 
     if (available.length === 0 || prices.length === 0) {
-      panel.style.display = 'none';
+      panel.classList.add('stock-panel--empty');
       return;
     }
+    panel.classList.remove('stock-panel--empty');
 
     var minPrice = Math.min.apply(null, prices);
     var weekSeed = getWeekSeed();
@@ -828,7 +833,7 @@
     document.getElementById('stat-orderable').textContent = pad(orderable);
     document.getElementById('stat-reserved').textContent = pad(reserved.length);
     document.getElementById('stat-min-price').innerHTML = 'от <strong>' + formatPrice(minPrice) + ' ₽</strong>';
-    panel.style.display = 'flex';
+    panel.classList.remove('stock-panel--loading');
   }
 
   function getStatusInfo(status) {
@@ -898,27 +903,70 @@
     }
   }
 
+  var STOCK_CACHE_KEY = 'sworks_stock_v1';
+  var STOCK_CACHE_TTL = 60 * 60 * 1000; // 1 час
+
+  function readStockCache() {
+    try {
+      var raw = localStorage.getItem(STOCK_CACHE_KEY);
+      if (!raw) return null;
+      var data = JSON.parse(raw);
+      if (!data || !data.ts || !Array.isArray(data.bikes)) return null;
+      if (Date.now() - data.ts > STOCK_CACHE_TTL) return null;
+      return data.bikes;
+    } catch (e) { return null; }
+  }
+
+  function writeStockCache(bikes) {
+    try {
+      localStorage.setItem(STOCK_CACHE_KEY, JSON.stringify({
+        ts: Date.now(),
+        bikes: bikes
+      }));
+    } catch (e) {}
+  }
+
+  function applyStockData(bikes, fromCache) {
+    var grid = document.getElementById('stock-grid');
+    if (grid) grid.innerHTML = '';
+    renderStockCards(bikes);
+    updateHeroStockBadge(bikes);
+    var panel = document.getElementById('hero-stock-panel');
+    if (panel) panel.classList.remove('stock-panel--loading');
+  }
+
   function loadStock() {
     if (SHEET_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
-      // URL ещё не настроен — скрываем секцию
       var section = document.querySelector('.stock');
       if (section) section.style.display = 'none';
       return;
     }
 
+    // 1) Показать из кеша сразу, если есть свежий
+    var cached = readStockCache();
+    if (cached && cached.length > 0) {
+      applyStockData(cached, true);
+    }
+
+    // 2) Параллельно загрузить свежие данные
     fetch(SHEET_URL)
       .then(function(response) {
         if (!response.ok) throw new Error('Sheet fetch failed');
         return response.json();
       })
       .then(function(bikes) {
-        renderStockCards(bikes);
-        updateHeroStockBadge(bikes);
+        applyStockData(bikes, false);
+        writeStockCache(bikes);
       })
       .catch(function(err) {
         console.error('Stock load error:', err);
-        var loading = document.getElementById('stock-loading');
-        if (loading) loading.innerHTML = '<p>Не удалось загрузить каталог. <a href="#form" style="color:var(--color-primary)">Оставьте заявку</a> — мы расскажем о наличии.</p>';
+        // Если кеша не было — показать сообщение об ошибке
+        if (!cached) {
+          var loading = document.getElementById('stock-loading');
+          if (loading) loading.innerHTML = '<p>Не удалось загрузить каталог. <a href="#form" style="color:var(--color-primary)">Оставьте заявку</a> — мы расскажем о наличии.</p>';
+          var panel = document.getElementById('hero-stock-panel');
+          if (panel) panel.style.display = 'none';
+        }
       });
   }
 
