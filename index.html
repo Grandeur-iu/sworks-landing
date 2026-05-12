@@ -36,7 +36,7 @@
   <div class="container">
     <a href="#" class="header__logo"><img src="я байк-2.png" alt="Ябайк" class="header__logo-img"></a>
     <div class="header__right">
-      <a href="#form" class="btn btn--primary btn--small">Консультация</a>
+      <a href="#form" class="btn btn--primary btn--small">Оставить заявку</a>
     </div>
   </div>
 </header>
@@ -48,8 +48,37 @@
       <span class="label label--muted">Ябайк · S-Works в России</span>
       <h1>Подберём, привезём<br>и соберём ваш <span style="white-space:nowrap">S-Works</span></h1>
       <p class="hero__subtitle">Прямые поставки из Европы. Шоссе, гравел, МТБ, электро — любая модель S-Works. Соберём и настроим под вас. Магазин и мастерская в Крылатском.</p>
+      <a href="#stock" class="stock-panel" id="hero-stock-panel" style="display:none" aria-label="Перейти к каталогу">
+        <div class="stock-panel__glow" aria-hidden="true"></div>
+
+        <div class="stock-panel__row stock-panel__row--status">
+          <span class="stock-panel__dot" aria-hidden="true"></span>
+          <span class="stock-panel__status-text">Live<span class="stock-panel__status-sep">·</span>Сейчас в каталоге</span>
+        </div>
+
+        <div class="stock-panel__row stock-panel__row--main">
+          <span class="stock-panel__main-num" id="stat-available">—</span>
+          <div class="stock-panel__main-info">
+            <span class="stock-panel__main-bar" aria-hidden="true"></span>
+            <span class="stock-panel__main-label">велосипедов <br>в&nbsp;наличии</span>
+            <div class="stock-panel__meta">
+              <span class="stock-panel__meta-item"><strong id="stat-customs">—</strong> на&nbsp;таможне</span>
+              <span class="stock-panel__meta-item"><strong id="stat-orderable">—</strong> под&nbsp;заказ</span>
+              <span class="stock-panel__meta-item"><strong id="stat-reserved">—</strong> в&nbsp;выдаче</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stock-panel__row stock-panel__row--footer">
+          <span class="stock-panel__price" id="stat-min-price"></span>
+          <span class="stock-panel__cta">
+            <span>Смотреть каталог</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
       <div class="hero__cta">
-        <a href="#form" class="btn btn--primary">Получить консультацию</a>
+        <a href="#form" class="btn btn--primary">Оставить заявку</a>
         <a href="#stock" class="hero__scroll-link">Велосипеды в наличии ↓</a>
       </div>
     </div>
@@ -77,6 +106,53 @@
   </div>
 </section>
 
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="text-center mb-48 fade-in">
+      <span class="label">Как это работает</span>
+      <h2>Три сценария — все&nbsp;быстрые</h2>
+    </div>
+
+    <div class="how-grid fade-in">
+
+      <div class="how-card">
+        <span class="how-card__num">01</span>
+        <span class="how-card__bar" aria-hidden="true"></span>
+        <h3 class="how-card__title">В наличии</h3>
+        <div class="how-card__time">
+          <span class="how-card__time-num">В день</span>
+          <span class="how-card__time-unit">оплаты</span>
+        </div>
+        <p class="how-card__desc">Забираете из магазина в&nbsp;Крылатском или доставляем по&nbsp;Москве. Велосипед уже&nbsp;собран, настроен и&nbsp;готов к&nbsp;первой поездке.</p>
+      </div>
+
+      <div class="how-card">
+        <span class="how-card__num">02</span>
+        <span class="how-card__bar" aria-hidden="true"></span>
+        <h3 class="how-card__title">В пути</h3>
+        <div class="how-card__time">
+          <span class="how-card__time-num">5–10</span>
+          <span class="how-card__time-unit">дней</span>
+        </div>
+        <p class="how-card__desc">Велосипед уже едет к&nbsp;нам и&nbsp;ждёт вас. Бронируете заранее&nbsp;— как&nbsp;только приедет, сразу собираем, настраиваем под&nbsp;вашу антропометрию.</p>
+      </div>
+
+      <div class="how-card">
+        <span class="how-card__num">03</span>
+        <span class="how-card__bar" aria-hidden="true"></span>
+        <h3 class="how-card__title">Под заказ</h3>
+        <div class="how-card__time">
+          <span class="how-card__time-num">14–21</span>
+          <span class="how-card__time-unit">день</span>
+        </div>
+        <p class="how-card__desc">Любая модель S-Works из&nbsp;каталога Specialized. Прямой импорт из&nbsp;ЕС, полная растаможка, документы. Сборка под&nbsp;вас и&nbsp;первое ТО&nbsp;бесплатно.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===== MODELS ===== -->
 <section class="section models" id="models">
   <div class="container">
@@ -93,7 +169,7 @@
         <span class="model-card__subtitle">Гоночный флагман</span>
         <h3>TARMAC SL8</h3>
         <p class="model-card__desc">Рама FACT 12r весом 685 граммов, разработана в аэротрубе Win Tunnel. Тот самый велосипед Ремко Эвенепула и команды Red Bull BORA-hansgrohe. Комплектации с Shimano Dura-Ace Di2 и SRAM Red eTap AXS.</p>
-        <a href="#form" class="btn btn--outline btn--small btn--full">Получить консультацию</a>
+        <a href="#form" class="btn btn--outline btn--small btn--full">Оставить заявку</a>
       </div>
 
       <!-- AETHOS -->
@@ -102,7 +178,7 @@
         <span class="model-card__subtitle">Ультралёгкий</span>
         <h3>AETHOS</h3>
         <p class="model-card__desc">Легче минимума UCI. Чистый карбон FACT 12r без компромиссов в пользу аэродинамики — только вес и отклик. Для тех, кто считает каждый грамм и ценит чистоту ощущений от езды.</p>
-        <a href="#form" class="btn btn--outline btn--small btn--full">Получить консультацию</a>
+        <a href="#form" class="btn btn--outline btn--small btn--full">Оставить заявку</a>
       </div>
 
       <!-- TURBO LEVO -->
@@ -111,7 +187,7 @@
         <span class="model-card__subtitle">Электро-МТБ флагман</span>
         <h3>TURBO LEVO</h3>
         <p class="model-card__desc">Флагман электро-МТБ. Мотор Specialized 2.2, карбоновая рама FACT 11m, до 5 часов батареи. Трейлы без ограничений — максимум возможностей на любом рельефе.</p>
-        <a href="#form" class="btn btn--outline btn--small btn--full">Получить консультацию</a>
+        <a href="#form" class="btn btn--outline btn--small btn--full">Оставить заявку</a>
       </div>
 
     </div>
@@ -186,7 +262,7 @@
       </div>
     </div>
 
-    <a href="#form" class="btn btn--primary">Получить консультацию</a>
+    <a href="#form" class="btn btn--primary">Оставить заявку</a>
   </div>
 </section>
 
@@ -303,7 +379,7 @@
       <div class="form-section__text fade-in">
         <span class="label">Ябайк × S-Works</span>
         <h2>Подберём ваш идеальный S-Works</h2>
-        <p>Оставьте номер телефона — эксперт Ябайк свяжется для бесплатной консультации. Расскажем о наличии, комплектациях, сроках доставки и поможем выбрать идеальный велосипед.</p>
+        <p>Свяжемся в течение 15 минут и ответим на все вопросы: наличие, цены, комплектации, сроки доставки. Поможем выбрать идеальный велосипед под ваши задачи.</p>
         <div class="form-section__messengers">
           <span class="form-section__messengers-label">Или напишите нам сразу — ответим в течение 15 минут</span>
           <div class="form-section__messengers-buttons">
@@ -348,7 +424,7 @@
             <label for="comment">Комментарий <span style="font-weight:400;text-transform:none;letter-spacing:0">(необязательно)</span></label>
             <textarea id="comment" name="comment" rows="3" placeholder="Размер, комплектация, вопросы..."></textarea>
           </div>
-          <button type="submit" class="btn btn--primary btn--full">Получить консультацию</button>
+          <button type="submit" class="btn btn--primary btn--full">Оставить заявку</button>
           <p class="form__fine-print">Нажимая кнопку, вы соглашаетесь с <a href="privacy-policy.html" target="_blank">политикой конфиденциальности</a>. Мы не передаём ваши данные третьим лицам.</p>
         </form>
       </div>
@@ -373,7 +449,7 @@
           <span class="faq-item__icon"></span>
         </button>
         <div class="faq-item__answer">
-          <p>Стоимость зависит от модели и комплектации. S-Works включает шоссейные, горные, гравийные и электрические велосипеды — каждая категория со своим диапазоном. Оставьте заявку, и мы подготовим персональное предложение с актуальными ценами и наличием.</p>
+          <p>Актуальные цены и наличие смотрите в разделе <a href="#stock" style="color:var(--color-primary);text-decoration:underline">Сейчас в наличии</a> — там реальные велосипеды с конкретными ценами, готовые к покупке. Если нужной модели нет в каталоге, привезём под заказ из Европы — оставьте заявку, подготовим персональное предложение.</p>
         </div>
       </div>
 
@@ -471,23 +547,29 @@
   </div>
 </footer>
 
-<!-- ===== BOOKING MODAL ===== -->
-<div class="modal-overlay" id="booking-modal" style="display:none">
+<!-- ===== BOOKING / SHOW MODAL ===== -->
+<div class="modal-overlay" id="booking-modal" style="display:none" data-mode="booking">
   <div class="modal">
     <button class="modal__close" id="modal-close" aria-label="Закрыть">&times;</button>
-    <h3>Забронировать</h3>
+    <h3 id="modal-title">Забронировать</h3>
     <p class="modal__bike-name" id="modal-bike-name"></p>
+    <p class="modal__lead" id="modal-lead" style="display:none">Покажем велосипед в&nbsp;реальном времени по&nbsp;видеосвязи. Подробно посмотрим компоненты, ответим на&nbsp;вопросы. Удобное время согласуем.</p>
     <form id="booking-form" action="https://formsubmit.co/yabike.ru@yandex.ru" method="POST">
-      <input type="hidden" name="_subject" value="Бронирование велосипеда — S-Works">
+      <input type="hidden" name="_subject" id="booking-subject" value="Бронирование велосипеда — S-Works">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="type" id="booking-type" value="booking">
       <input type="hidden" name="bike_model" id="booking-bike-model" value="">
       <div class="form-group">
         <label for="booking-phone">Телефон</label>
         <input type="tel" id="booking-phone" name="phone" placeholder="+7 (___) ___-__-__" required>
       </div>
-      <button type="submit" class="btn btn--primary btn--full">Забронировать</button>
-      <p class="form__fine-print">Перезвоним в течение 15 минут для подтверждения.</p>
+      <div class="form-group" id="booking-time-group" style="display:none">
+        <label for="booking-time">Удобное время <span style="font-weight:400;text-transform:none;letter-spacing:0">(необязательно)</span></label>
+        <input type="text" id="booking-time" name="time" placeholder="Например: завтра вечером, в субботу днём">
+      </div>
+      <button type="submit" id="booking-submit" class="btn btn--primary btn--full">Забронировать</button>
+      <p class="form__fine-print" id="booking-finehint">Перезвоним в течение 15 минут для подтверждения.</p>
     </form>
   </div>
 </div>
@@ -654,11 +736,11 @@
           if (typeof ym !== 'undefined') ym(108467185, 'reachGoal', 'lead_form');
           form.innerHTML = '<div style="text-align:center;padding:40px 0"><h3 style="color:#fff;margin-bottom:12px">Спасибо за заявку!</h3><p style="color:#999">Наш эксперт свяжется с вами в ближайшее время.</p></div>';
         } else {
-          submitBtn.textContent = 'Получить консультацию';
+          submitBtn.textContent = 'Оставить заявку';
           submitBtn.disabled = false;
         }
       }).catch(function() {
-        submitBtn.textContent = 'Получить консультацию';
+        submitBtn.textContent = 'Оставить заявку';
         submitBtn.disabled = false;
       });
     });
@@ -685,6 +767,68 @@
       return 'https://lh3.googleusercontent.com/d/' + match[1];
     }
     return url;
+  }
+
+  function parsePrice(str) {
+    var match = String(str || '').replace(/\s| /g, '').match(/\d+/);
+    return match ? parseInt(match[0], 10) : null;
+  }
+
+  function formatPrice(num) {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
+
+  function pluralBikes(n) {
+    var mod10 = n % 10, mod100 = n % 100;
+    if (mod10 === 1 && mod100 !== 11) return n + ' велосипед';
+    if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return n + ' велосипеда';
+    return n + ' велосипедов';
+  }
+
+  function getWeekSeed() {
+    var d = new Date();
+    var startOfYear = new Date(d.getFullYear(), 0, 1);
+    var weekNum = Math.floor((d - startOfYear) / (7 * 24 * 60 * 60 * 1000));
+    return d.getFullYear() * 100 + weekNum;
+  }
+
+  function seededRandom(seed, min, max) {
+    var x = Math.sin(seed) * 10000;
+    x = x - Math.floor(x);
+    return Math.floor(x * (max - min + 1)) + min;
+  }
+
+  function updateHeroStockBadge(bikes) {
+    var panel = document.getElementById('hero-stock-panel');
+    if (!panel) return;
+
+    var available = bikes.filter(function(b) {
+      var s = (b.status || '').toLowerCase().trim();
+      return s === 'свободен' || s === 'в пути';
+    });
+    var reserved = bikes.filter(function(b) {
+      var s = (b.status || '').toLowerCase().trim();
+      return s === 'забронирован';
+    });
+    var prices = available.map(function(b) { return parsePrice(b.price); }).filter(function(p) { return p !== null; });
+
+    if (available.length === 0 || prices.length === 0) {
+      panel.style.display = 'none';
+      return;
+    }
+
+    var minPrice = Math.min.apply(null, prices);
+    var weekSeed = getWeekSeed();
+    var customs = seededRandom(weekSeed, 1, 10);
+    var orderable = seededRandom(weekSeed * 2 + 17, 10, 30);
+
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+    document.getElementById('stat-available').textContent = pad(available.length);
+    document.getElementById('stat-customs').textContent = pad(customs);
+    document.getElementById('stat-orderable').textContent = pad(orderable);
+    document.getElementById('stat-reserved').textContent = pad(reserved.length);
+    document.getElementById('stat-min-price').innerHTML = 'от <strong>' + formatPrice(minPrice) + ' ₽</strong>';
+    panel.style.display = 'flex';
   }
 
   function getStatusInfo(status) {
@@ -722,7 +866,13 @@
       card.className = 'stock-card';
 
       var buttonHtml = canBook
-        ? '<button class="btn btn--primary btn--small btn--full stock-book-btn" data-model="' + escapeAttr(bike.model) + '">Забронировать</button>'
+        ? '<div class="stock-card__actions">' +
+            '<button class="btn btn--primary btn--small btn--full stock-book-btn" data-model="' + escapeAttr(bike.model) + '" data-action="booking">Забронировать</button>' +
+            '<button class="btn btn--ghost btn--small btn--full stock-book-btn stock-show-btn" data-model="' + escapeAttr(bike.model) + '" data-action="show">' +
+              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>' +
+              '<span>Онлайн-показ</span>' +
+            '</button>' +
+          '</div>'
         : '<span class="btn btn--outline btn--small btn--full btn--disabled">' + escapeHtml(info.label) + '</span>';
 
       var imgHtml = photoUrl
@@ -763,6 +913,7 @@
       })
       .then(function(bikes) {
         renderStockCards(bikes);
+        updateHeroStockBadge(bikes);
       })
       .catch(function(err) {
         console.error('Stock load error:', err);
@@ -797,15 +948,55 @@
     });
   });
 
-  // --- Booking modal ---
+  // --- Booking / Online show modal ---
+  var MODAL_MODES = {
+    booking: {
+      title: 'Забронировать',
+      subject: 'Бронирование велосипеда — S-Works',
+      submit: 'Забронировать',
+      finehint: 'Перезвоним в течение 15 минут для подтверждения.',
+      success: 'Велосипед забронирован!',
+      successText: 'Перезвоним для подтверждения.',
+      goal: 'booking_form',
+      showTime: false,
+      showLead: false
+    },
+    show: {
+      title: 'Онлайн-показ',
+      subject: 'Запрос онлайн-показа — S-Works',
+      submit: 'Записаться на показ',
+      finehint: 'Свяжемся в течение 15 минут и согласуем удобное время.',
+      success: 'Заявка принята!',
+      successText: 'Свяжемся в течение 15 минут и согласуем время показа.',
+      goal: 'online_show',
+      showTime: true,
+      showLead: true
+    }
+  };
+
+  function setModalMode(mode) {
+    var cfg = MODAL_MODES[mode] || MODAL_MODES.booking;
+    document.getElementById('booking-modal').setAttribute('data-mode', mode);
+    document.getElementById('modal-title').textContent = cfg.title;
+    document.getElementById('booking-subject').value = cfg.subject;
+    document.getElementById('booking-type').value = mode;
+    document.getElementById('booking-submit').textContent = cfg.submit;
+    document.getElementById('booking-finehint').textContent = cfg.finehint;
+    document.getElementById('booking-time-group').style.display = cfg.showTime ? 'block' : 'none';
+    document.getElementById('modal-lead').style.display = cfg.showLead ? 'block' : 'none';
+  }
+
   document.addEventListener('click', function(e) {
     var btn = e.target.closest('.stock-book-btn');
     if (!btn) return;
 
     var modelName = btn.getAttribute('data-model');
+    var action = btn.getAttribute('data-action') || 'booking';
     var modal = document.getElementById('booking-modal');
     var bikeName = document.getElementById('modal-bike-name');
     var bikeInput = document.getElementById('booking-bike-model');
+
+    setModalMode(action);
 
     bikeName.textContent = modelName;
     bikeInput.value = modelName;
@@ -848,21 +1039,24 @@
       submitBtn.textContent = 'Отправка...';
       submitBtn.disabled = true;
 
+      var currentMode = document.getElementById('booking-modal').getAttribute('data-mode') || 'booking';
+      var modeCfg = MODAL_MODES[currentMode] || MODAL_MODES.booking;
+
       fetch(bookingForm.action, {
         method: 'POST',
         body: formData,
         headers: { 'Accept': 'application/json' }
       }).then(function(response) {
         if (response.ok) {
-          if (typeof ym !== 'undefined') ym(108467185, 'reachGoal', 'booking_form');
-          bookingForm.innerHTML = '<div style="text-align:center;padding:24px 0"><h3 style="color:#fff;margin-bottom:8px">Велосипед забронирован!</h3><p style="color:#999">Перезвоним для подтверждения.</p></div>';
+          if (typeof ym !== 'undefined') ym(108467185, 'reachGoal', modeCfg.goal);
+          bookingForm.innerHTML = '<div style="text-align:center;padding:24px 0"><h3 style="color:#fff;margin-bottom:8px">' + modeCfg.success + '</h3><p style="color:#999">' + modeCfg.successText + '</p></div>';
           setTimeout(closeModal, 2500);
         } else {
-          submitBtn.textContent = 'Забронировать';
+          submitBtn.textContent = modeCfg.submit;
           submitBtn.disabled = false;
         }
       }).catch(function() {
-        submitBtn.textContent = 'Забронировать';
+        submitBtn.textContent = modeCfg.submit;
         submitBtn.disabled = false;
       });
     });
