@@ -1438,18 +1438,75 @@ p:last-child {
   margin-bottom: 24px;
 }
 
+/* --- Stock swipe hint (mobile only) --- */
+.stock__hint {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .stock__hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    padding: 7px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .stock__hint svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    animation: hint-arrow 1.6s ease-in-out infinite;
+  }
+
+  .stock__hint svg:first-child {
+    animation-delay: 0.8s;
+  }
+}
+
+@keyframes hint-arrow {
+  0%, 100% { transform: translateX(0); opacity: 0.5; }
+  50% { transform: translateX(3px); opacity: 1; }
+}
+
+.stock__hint svg:first-child {
+  animation-name: hint-arrow-reverse;
+}
+
+@keyframes hint-arrow-reverse {
+  0%, 100% { transform: translateX(0); opacity: 0.5; }
+  50% { transform: translateX(-3px); opacity: 1; }
+}
+
 /* --- Stock Mobile --- */
 @media (max-width: 639px) {
+  .stock {
+    position: relative;
+  }
+  .stock .container {
+    position: relative;
+  }
   .stock__grid {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 8px;
+    padding-right: 40px;
+    /* fade mask: ясно видно что справа есть продолжение */
+    mask-image: linear-gradient(to right, #000 0%, #000 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 90%, transparent 100%);
   }
   .stock-card {
-    flex: 0 0 300px;
-    min-width: 300px;
+    flex: 0 0 calc(100% - 60px);
+    min-width: 260px;
+    max-width: 320px;
     scroll-snap-align: start;
   }
 }
