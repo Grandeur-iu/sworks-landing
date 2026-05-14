@@ -964,9 +964,17 @@
         ? '<img class="stock-card__image" src="' + escapeAttr(photoUrl) + '" alt="' + escapeAttr(bike.model) + '" loading="lazy" onerror="this.style.display=\'none\'">'
         : '';
 
+      var yearStr = String(bike.year || '').trim();
+      var yearHtml = yearStr
+        ? '<span class="stock-card__year">' + escapeHtml(yearStr) + '</span>'
+        : '';
+
       card.innerHTML =
         imgHtml +
-        '<span class="stock-card__status ' + info.cssClass + '">' + escapeHtml(info.label) + '</span>' +
+        '<div class="stock-card__meta">' +
+          '<span class="stock-card__status ' + info.cssClass + '">' + escapeHtml(info.label) + '</span>' +
+          yearHtml +
+        '</div>' +
         '<h3>' + escapeHtml(bike.model) + '</h3>' +
         '<p class="stock-card__desc">' + escapeHtml(bike.description) + '</p>' +
         '<div class="stock-card__price">' + escapeHtml(bike.price) + '</div>' +
@@ -983,7 +991,7 @@
     }
   }
 
-  var STOCK_CACHE_KEY = 'sworks_stock_v1';
+  var STOCK_CACHE_KEY = 'sworks_stock_v2';
   var STOCK_CACHE_TTL = 60 * 60 * 1000; // 1 час
 
   function readStockCache() {
