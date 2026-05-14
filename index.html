@@ -960,21 +960,24 @@
           '</div>'
         : '<span class="btn btn--outline btn--small btn--full btn--disabled">' + escapeHtml(info.label) + '</span>';
 
-      var imgHtml = photoUrl
-        ? '<img class="stock-card__image" src="' + escapeAttr(photoUrl) + '" alt="' + escapeAttr(bike.model) + '" loading="lazy" onerror="this.style.display=\'none\'">'
+      var yearStr = String(bike.year || '').trim();
+      var yearBadgeHtml = yearStr
+        ? '<div class="stock-card__year-badge" aria-label="Модельный год ' + escapeAttr(yearStr) + '">' +
+            '<span class="stock-card__year-label">Model Year</span>' +
+            '<span class="stock-card__year-number">' + escapeHtml(yearStr) + '</span>' +
+          '</div>'
         : '';
 
-      var yearStr = String(bike.year || '').trim();
-      var yearHtml = yearStr
-        ? '<span class="stock-card__year">' + escapeHtml(yearStr) + '</span>'
+      var mediaHtml = photoUrl
+        ? '<div class="stock-card__media">' +
+            '<img class="stock-card__image" src="' + escapeAttr(photoUrl) + '" alt="' + escapeAttr(bike.model) + '" loading="lazy" onerror="this.parentNode.style.display=\'none\'">' +
+            yearBadgeHtml +
+          '</div>'
         : '';
 
       card.innerHTML =
-        imgHtml +
-        '<div class="stock-card__meta">' +
-          '<span class="stock-card__status ' + info.cssClass + '">' + escapeHtml(info.label) + '</span>' +
-          yearHtml +
-        '</div>' +
+        mediaHtml +
+        '<span class="stock-card__status ' + info.cssClass + '">' + escapeHtml(info.label) + '</span>' +
         '<h3>' + escapeHtml(bike.model) + '</h3>' +
         '<p class="stock-card__desc">' + escapeHtml(bike.description) + '</p>' +
         '<div class="stock-card__price">' + escapeHtml(bike.price) + '</div>' +
