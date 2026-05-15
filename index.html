@@ -1316,42 +1316,44 @@
     });
   }
 
-  // --- SL9: prefill model select when CTA clicked ---
-  document.querySelectorAll('[data-prefill-model]').forEach(function(el) {
-    el.addEventListener('click', function() {
-      var value = el.getAttribute('data-prefill-model');
-      var select = document.getElementById('model');
-      if (select) select.value = value;
-      if (typeof ym !== 'undefined') ym(108467185, 'reachGoal', 'sl9_booking_click');
-    });
-  });
-
-  // --- SL9: gallery thumbnail swap ---
-  var sl9MainImg = document.getElementById('sl9-main-img');
-  var sl9Thumbs = document.querySelectorAll('.sl9-thumb');
-  if (sl9MainImg && sl9Thumbs.length) {
-    sl9Thumbs.forEach(function(thumb) {
-      thumb.addEventListener('click', function() {
-        var src = thumb.getAttribute('data-src');
-        var alt = thumb.getAttribute('data-alt') || '';
-        if (!src || src === sl9MainImg.getAttribute('src')) return;
-        sl9MainImg.classList.add('is-swapping');
-        setTimeout(function() {
-          sl9MainImg.setAttribute('src', src);
-          sl9MainImg.setAttribute('alt', alt);
-          sl9MainImg.classList.remove('is-swapping');
-        }, 180);
-        sl9Thumbs.forEach(function(t) { t.classList.remove('is-active'); });
-        thumb.classList.add('is-active');
+  // --- SL9 block (изолировано в try/catch, чтобы не сломать остальной скрипт при любых ошибках) ---
+  try {
+    document.querySelectorAll('[data-prefill-model]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var value = el.getAttribute('data-prefill-model');
+        var select = document.getElementById('model');
+        if (select) select.value = value;
+        if (typeof ym !== 'undefined') ym(108467185, 'reachGoal', 'sl9_booking_click');
       });
     });
-  }
 
-  // --- SL9: protect gallery from right-click / drag save ---
-  var sl9Gallery = document.querySelector('.sl9-gallery');
-  if (sl9Gallery) {
-    sl9Gallery.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-    sl9Gallery.addEventListener('dragstart', function(e) { e.preventDefault(); });
+    var sl9MainImg = document.getElementById('sl9-main-img');
+    var sl9Thumbs = document.querySelectorAll('.sl9-thumb');
+    if (sl9MainImg && sl9Thumbs.length) {
+      sl9Thumbs.forEach(function(thumb) {
+        thumb.addEventListener('click', function() {
+          var src = thumb.getAttribute('data-src');
+          var alt = thumb.getAttribute('data-alt') || '';
+          if (!src || src === sl9MainImg.getAttribute('src')) return;
+          sl9MainImg.classList.add('is-swapping');
+          setTimeout(function() {
+            sl9MainImg.setAttribute('src', src);
+            sl9MainImg.setAttribute('alt', alt);
+            sl9MainImg.classList.remove('is-swapping');
+          }, 180);
+          sl9Thumbs.forEach(function(t) { t.classList.remove('is-active'); });
+          thumb.classList.add('is-active');
+        });
+      });
+    }
+
+    var sl9Gallery = document.querySelector('.sl9-gallery');
+    if (sl9Gallery) {
+      sl9Gallery.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+      sl9Gallery.addEventListener('dragstart', function(e) { e.preventDefault(); });
+    }
+  } catch (err) {
+    console.warn('SL9 block error (non-critical):', err);
   }
 
 })();
